@@ -28,8 +28,8 @@ public class BrowserFactory {
         driver.get(url);
         return driver;
     }
-        @Test
-   public void test(){
-        startBrowser("chrome", "https://horizontest.clientele.co.za/horizon.ui/");
-    }
+//        @Test
+//   public void test(){
+//        startBrowser("chrome", "https://horizontest.clientele.co.za/horizon.ui/");
+//    }
 }
