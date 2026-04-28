@@ -16,8 +16,8 @@ public class loginPage {
     @FindBy(id = "username")
     private WebElement username;
 
-    @FindBy(id = "password")
-    private WebElement password;
+    @FindBy(xpath = "//input[contains(@id,'password')]")
+    private WebElement password_xpath;
 
     @FindBy(id = "kc-login")
     private WebElement login;
@@ -28,15 +28,15 @@ public class loginPage {
     }
 
     public void enterUsername(String user) {
-        new WebDriverWait(driver, Duration.ofSeconds(20))
+        new WebDriverWait(driver, Duration.ofSeconds(30))
                 .until(ExpectedConditions.elementToBeClickable(username));
         username.sendKeys(user);
     }
 
     public void enterPassword(String pass) {
-        new WebDriverWait(driver, Duration.ofSeconds(20))
-                .until(ExpectedConditions.elementToBeClickable(password));
-        password.sendKeys(pass);
+        new WebDriverWait(driver, Duration.ofSeconds(30))
+                .until(ExpectedConditions.elementToBeClickable(password_xpath));
+        password_xpath.sendKeys(pass);
     }
 
     public void clickLoginButton() {
