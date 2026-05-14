@@ -92,26 +92,7 @@ WebElement dropdownOption_xpath;
 
     @FindBy(xpath = "(//span[contains(@class,'rz-dropdown-label')])[2]")
        WebElement plan_xpath;
-//
-              //selectcting plan option from the dropdown
 
-
-    // Select plan dropdown and then a plan option
-//    public void selectRadzenDropdownPlanOption(String optionText) {
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
-//
-//        WebElement dropdown = wait.until(ExpectedConditions.elementToBeClickable(plan_xpath));
-//        dropdown.click();
-//
-//        By optionLocator = By.xpath("//li[@role='option' and @aria-label='" + optionText + "']");
-//        WebElement option = wait.until(ExpectedConditions.elementToBeClickable(optionLocator));
-//
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", option);
-//        try {
-//            option.click();
-//        } catch (Exception e) {
-//            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", option);
-//        }
 
     public void selectRadzenDropdownPlanOption(String optionText) {
 
@@ -124,12 +105,12 @@ WebElement dropdownOption_xpath;
         dropdown.click();
 
         // 2. Wait for dropdown list to be present
-        By dropdownList = By.cssSelector("ul.rz-dropdown-items");
+        By dropdownList = By.xpath("//ul[contains(@class,'rz-dropdown-items') and contains(@class,'rz-dropdown-overlay')][3]");
         wait.until(ExpectedConditions.visibilityOfElementLocated(dropdownList));
 
         // 3. Locate option by aria-label or visible text
         By optionLocator = By.xpath(
-                "//li[contains(@class,'rz-dropdown-item') and normalize-space(.)='" + optionText + "']"
+                "//li[contains(@class,'rz-dropdown-item') and normalize-space(.)='" + optionText + "'][3]"
         );
 
         WebElement option = wait.until(
@@ -149,22 +130,4 @@ WebElement dropdownOption_xpath;
     }
 
 }
-//    @FindBy(xpath = "(//div[contains(@class,'rz-dropdown') and .//input[@aria-haspopup='listbox']])[2]")
-//    WebElement plan_xpath;
-//
-//        public void selectPlan() {
-//            new WebDriverWait(driver, Duration.ofSeconds(20))
-//                    .until(ExpectedConditions.elementToBeClickable(Product_xpath));
-//            plan_xpath.click();
-//        }
-//    @FindBy(xpath = "//li[@role='option']//span[normalize-space()='Classic Legal']")
-//    WebElement  planItem_xpath;
-//
-//        public void selectPlanItem() {
-//            new WebDriverWait(driver, Duration.ofSeconds(50))
-//                    .until(ExpectedConditions.elementToBeClickable(planItem_xpath));
-//            planItem_xpath.click();
-//
-//        }
-//
-    //}
+

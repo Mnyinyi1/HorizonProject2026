@@ -13,7 +13,7 @@ import java.time.Duration;
 public class LoginTest extends BasePage {
 
     private final String username = "mnyinyi@clientele.co.za";
-    private final String password = "Allocation123$";
+    private final String password = "Offsets123$";
 
     @Test
     public void enterUsername() {
